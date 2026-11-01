@@ -124,20 +124,6 @@
       font-size: 14px
     }
 
-    #ebtn {
-      bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
-      right: max(14px, calc(50vw - 226px));
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      font-size: 20px;
-      display: none
-    }
-
-    body.opened.edit #ebtn {
-      display: block
-    }
-
     #bar {
       position: fixed;
       top: 0;
@@ -1185,97 +1171,6 @@
       border-radius: 8px
     }
 
-    /* editor */
-    #ed {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0 auto;
-      width: min(100%, 480px);
-      max-height: 90vh;
-      overflow: auto;
-      z-index: 90;
-      background: var(--cream);
-      color: var(--em);
-      border-radius: 20px 20px 0 0;
-      padding: 18px 16px calc(28px + env(safe-area-inset-bottom, 0px));
-      transform: translateY(105%);
-      transition: transform .4s;
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, .6);
-      font-size: 15px;
-      line-height: 1.4
-    }
-
-    #ed.on {
-      transform: none
-    }
-
-    #ed h3 {
-      font-size: 22px;
-      margin-bottom: 2px
-    }
-
-    #ed small {
-      color: #6b4a45;
-      display: block;
-      margin-bottom: 10px
-    }
-
-    #ed label {
-      display: block;
-      font-weight: 600;
-      margin: 12px 0 3px
-    }
-
-    #ed input,
-    #ed textarea {
-      width: 100%;
-      border: 1px solid #b99a55;
-      border-radius: 8px;
-      padding: 8px 10px;
-      background: #fff;
-      font-size: 15px;
-      margin-bottom: 5px;
-      color: var(--em)
-    }
-
-    #ed .r {
-      display: flex;
-      gap: 6px
-    }
-
-    #ed .r>* {
-      flex: 1;
-      min-width: 0
-    }
-
-    #ed .acts {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-      position: sticky;
-      bottom: -8px;
-      background: var(--cream);
-      padding: 8px 0
-    }
-
-    #ed button {
-      border: 1px solid var(--gold);
-      border-radius: 30px;
-      padding: 10px 18px;
-      background: #fff;
-      color: var(--em);
-      cursor: pointer;
-      font-size: 15px
-    }
-
-    #ed button.p {
-      background: var(--em);
-      color: var(--gold2)
-    }
-
     @media(prefers-reduced-motion:reduce) {
       * {
         animation: none !important;
@@ -1293,7 +1188,6 @@
 
 <body class="lock">
   <button id="lg" class="fab" type="button">English</button>
-  <button id="ebtn" class="fab" type="button" aria-label="Edit details">✎</button>
   <div id="bar"></div>
 
   <div id="cover">
@@ -1411,13 +1305,11 @@
     </section>
   </div>
 
-  <div id="ed" role="dialog" aria-label="Edit details"></div>
-
   <script>
     (function () {
-      var lang = 'mr', dg = '०१२३४५६७८९', LINK = 'https://claude.ai/artifact/43z6PMJ8D6swnEUUoTZgEM';
-      /* ---------- default content (editable) ---------- */
-      var DEF = {
+      var lang = 'mr', dg = '०१२३४५६७८९';
+      /* ---------- default content ---------- */
+      var S = {
         gn: { mr: 'ओमकार', en: 'Omkar' }, bn: { mr: 'भक्ती', en: 'Bhakti' },
         gd: { mr: 'कनिष्ठ पुत्र – श्री. प्रदिप ज्ञानोबा आगवणे\nमु. पो. निबुंत, ता. बारामती, जि. पुणे', en: 'Younger son of Shri Pradeep Dnyanoba Agawane\nAt Post Nimbut, Tal. Baramati, Dist. Pune' },
         bd: { mr: 'ज्येष्ठ कन्या – श्री. भगवान धोंडु राणे\nमु. पो. सिंधुदुर्ग, कणकवली', en: 'Eldest daughter of Shri Bhagwan Dhondu Rane\nAt Post Sindhudurg, Kankavali' },
@@ -1434,11 +1326,6 @@
         L3: 'स्वप्निल सुनिल मोरे | Swapnil Sunil More\nआदेश राजु आगवणे | Adesh Raju Agawane\nगुलशन किशनचंद भाटिया | Gulshan Kishanchand Bhatia\nकपिल हिरामन कानिंदे | Kapil Hiraman Kaninde\nसिद्धेश राजु आगवणे | Siddhesh Raju Agawane\nसिद्धेश अनिल मोरे | Siddhesh Anil More',
         L4: 'सुवर्णा सुखदेव भवाळ | Suvarna Sukhdev Bhaval\nसोनल शरद जाधव | Sonal Sharad Jadhav\nवनिता कपिल कानिंदे | Vanita Kapil Kaninde\nभारती संतोष शिंदे | Bharati Santosh Shinde\nशिवानी राजु आगवणे | Shivani Raju Agawane\nसाक्षी राजु आगवणे | Sakshi Raju Agawane'
       };
-      var S = JSON.parse(JSON.stringify(DEF)); if (/edit/.test(location.search + location.hash)) document.body.classList.add('edit');
-      function merge(o) { if (!o) return; for (var k in DEF) if (o[k] !== undefined && typeof o[k] == typeof DEF[k]) S[k] = o[k] }
-      try { merge(JSON.parse(localStorage.getItem('inv'))) } catch (e) { }
-      function dec(t) { return JSON.parse(decodeURIComponent(escape(atob(t.replace(/-/g, '+').replace(/_/g, '/'))))) }
-      function enc(o) { return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '') }
 
 
       /* ---------- symbols: marigold, jasmine, rose, leaf, gold foil ---------- */
@@ -1549,36 +1436,6 @@
       document.getElementById('lg').addEventListener('click', function () { lang = lang == 'mr' ? 'en' : 'mr'; render() });
       render(); setInterval(tick, 1000);
 
-      /* ---------- editor ---------- */
-      var FS = [['gn', 'Groom name (नाव)'], ['bn', 'Bride name (नाव)'], ['gd', 'Groom details (वराची माहिती)', 2], ['bd', 'Bride details (वधूची माहिती)', 2], ['pk', 'Panchang line (तिथी)'], ['dt', 'Date (दिनांक)'], ['tm', 'Time (वेळ)'], ['vn', 'Venue name (स्थळ)'], ['va', 'Venue address (पत्ता)', 3], ['kd', 'Children’s names (मुलांची नावे)']],
-        LS = [['L1', 'स्नेहांकित couples', 'One per line:  wife (mr) | husband (mr) | wife (en) | husband (en)\nSingle name:  name (mr) | name (en)', 6], ['L2', 'Invitees couples (same format)', '', 9], ['L3', 'Organisers', 'name (mr) | name (en)', 4], ['L4', 'Special support', 'name (mr) | name (en)', 4], ['EV', 'Programme', 'event (mr) | event (en) | time (mr) | time (en)', 4]],
-        ed = document.getElementById('ed');
-      function build() {
-        var h = '<h3>Edit details</h3><small>Change anything below, then press Apply. Changes are saved in this browser only.</small>';
-        FS.forEach(function (f) {
-          var r = f[2] || 1, tag = r > 1 ? 'textarea rows="' + r + '"' : 'input';
-          h += '<label>' + f[1] + '</label><div class="r"><' + tag + ' id="f_' + f[0] + '_mr" placeholder="मराठी"></' + (r > 1 ? 'textarea' : 'input') + '><' + tag + ' id="f_' + f[0] + '_en" placeholder="English"></' + (r > 1 ? 'textarea' : 'input') + '></div>'
-        });
-        h = h.replace(/<input([^>]*)><\/input>/g, '<input$1>');
-        h += '<label>Wedding date &amp; time for countdown</label><input id="f_iso" placeholder="2026-11-21T12:47">';
-        LS.forEach(function (f) { h += '<label>' + f[1] + '</label>' + (f[2] ? '<small>' + esc(f[2]) + '</small>' : '') + '<textarea id="f_' + f[0] + '" rows="' + f[3] + '"></textarea>' });
-        h += '<div class="acts"><button class="p" id="e_ap" type="button">Apply</button><button id="e_rs" type="button">Reset</button><button id="e_x" type="button">Close</button></div>';
-        ed.innerHTML = h;
-        document.getElementById('e_ap').onclick = apply; document.getElementById('e_x').onclick = function () { ed.classList.remove('on') };
-        document.getElementById('e_rs').onclick = function () { S = JSON.parse(JSON.stringify(DEF)); try { localStorage.removeItem('inv') } catch (e) { } fill(); render() };
-      }
-      function fill() {
-        FS.forEach(function (f) { ['mr', 'en'].forEach(function (l) { document.getElementById('f_' + f[0] + '_' + l).value = S[f[0]][l] }) });
-        document.getElementById('f_iso').value = S.iso; LS.forEach(function (f) { document.getElementById('f_' + f[0]).value = S[f[0]] }); link()
-      }
-      function link() { var d = {}; for (var k in DEF) if (JSON.stringify(S[k]) != JSON.stringify(DEF[k])) d[k] = S[k]; }
-      function apply() {
-        FS.forEach(function (f) { ['mr', 'en'].forEach(function (l) { S[f[0]][l] = document.getElementById('f_' + f[0] + '_' + l).value }) });
-        S.iso = document.getElementById('f_iso').value.trim() || DEF.iso; LS.forEach(function (f) { S[f[0]] = document.getElementById('f_' + f[0]).value });
-        try { localStorage.setItem('inv', JSON.stringify(S)) } catch (e) { } render(); link()
-      }
-      build(); fill();
-      document.getElementById('ebtn').addEventListener('click', function () { fill(); ed.classList.add('on') });
       /* ---------- luxury motion ---------- */
       document.querySelectorAll('.rv').forEach(function (e, i) { e.style.transitionDelay = ((i % 3) * .1) + 's' });
       document.querySelectorAll('.dk').forEach(function (s) { for (var i = 0; i < 10; i++) { var p = document.createElement('i'); p.className = 'sp'; p.textContent = '✦'; p.style.left = Math.random() * 100 + '%'; p.style.top = (30 + Math.random() * 70) + '%'; p.style.fontSize = (7 + Math.random() * 9) + 'px'; p.style.animationDuration = (6 + Math.random() * 6) + 's'; p.style.animationDelay = (-Math.random() * 8) + 's'; s.appendChild(p) } });
