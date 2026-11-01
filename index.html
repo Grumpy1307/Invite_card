@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ओमकार & भक्ती – शुभ विवाह</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi&family=Mukta:wght@400;600&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Great+Vibes&display=swap">
+  <style>
+    :root {
+      --m0: #2a0610;
+      --m1: #4a0d1f;
+      --m2: #6e1429;
+      --m3: #8e1b34;
+      --em: #4a0d1f;
+      --cream: #fbf3e0;
+      --paper: #fff9ec;
+      --gold: #c9a24d;
+      --gold2: #e8c874;
+      --g4: #fff2b8;
+      --foil: linear-gradient(135deg, #8a6420 0%, #e8c874 22%, #fff2b8 40%, #c9a24d 58%, #f1d98a 78%, #8a6420 100%);
+      --d: 'Tiro Devanagari Marathi', 'Noto Serif Devanagari', serif;
+      --n: var(--d);
+      --ns: 1;
+      --b: 'Mukta', 'Noto Sans Devanagari', sans-serif;
+      --tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='none' stroke='%23c9a24d' stroke-opacity='.2'%3E%3Cpath d='M32 2 62 32 32 62 2 32Z'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3Cpath d='M32 14c5 6 5 12 0 18-5-6-5-12 0-18zM32 50c5-6 5-12 0-18-5 6-5 12 0 18zM14 32c6 5 12 5 18 0-6-5-12-5-18 0zM50 32c-6 5-12 5-18 0 6-5 12-5 18 0z' stroke-opacity='.14'/%3E%3C/svg%3E");
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    body.en {
+      --d: 'Cormorant Garamond', Georgia, serif;
+      --n: 'Great Vibes', 'Cormorant Garamond', cursive;
+      --ns: 1.35;
+      font-size: 18px
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: env(safe-area-inset-top, 0px)
+    }
+
+    body {
+      background: #14040a;
+      color: var(--cream);
+      font-family: var(--b);
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden
+    }
+
+    body.lock {
+      overflow: hidden;
+      height: 100vh
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 85;
+      pointer-events: none;
+      opacity: .1;
+      mix-blend-mode: multiply;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--d);
+      font-weight: 400;
+      line-height: 1.25
+    }
+
+    button,
+    a,
+    input,
+    textarea {
+      font-family: inherit
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--gold2);
+      outline-offset: 3px
+    }
+
+    svg {
+      display: block
+    }
+
+    .phone {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 90px rgba(201, 162, 77, .2)
+    }
+
+    .fab {
+      position: fixed;
+      z-index: 80;
+      border: 1px solid var(--gold);
+      background: rgba(74, 13, 31, .88);
+      color: var(--gold2);
+      cursor: pointer;
+      backdrop-filter: blur(6px)
+    }
+
+    #lg {
+      top: calc(env(safe-area-inset-top, 0px) + 12px);
+      right: max(12px, calc(50vw - 228px));
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 14px
+    }
+
+    #ebtn {
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+      right: max(14px, calc(50vw - 226px));
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 20px;
+      display: none
+    }
+
+    body.opened.edit #ebtn {
+      display: block
+    }
+
+    #bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, #8a6420, #fff2b8);
+      z-index: 79
+    }
+
+    /* ===== cover: royal card that swings open ===== */
+    #cover {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: min(100%, 480px);
+      z-index: 70;
+      overflow: hidden;
+      perspective: 1700px;
+      background: radial-gradient(55% 38% at 50% 50%, #fff2b8, #c9a24d 45%, #3a0a17 88%);
+      transition: opacity .9s 1.5s
+    }
+
+    #cover.open {
+      opacity: 0
+    }
+
+    .half {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      overflow: hidden;
+      backface-visibility: hidden;
+      transition: transform 2s cubic-bezier(.65, 0, .25, 1)
+    }
+
+    .half.l {
+      left: 0;
+      transform-origin: 0 50%
+    }
+
+    .half.r {
+      right: 0;
+      transform-origin: 100% 50%
+    }
+
+    .half::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 2s
+    }
+
+    .half.l::after {
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, .8))
+    }
+
+    .half.r::after {
+      background: linear-gradient(270deg, transparent, rgba(0, 0, 0, .8))
+    }
+
+    #cover.open .half::after {
+      opacity: 1
+    }
+
+    #cover.open .l {
+      transform: rotateY(-114deg)
+    }
+
+    #cover.open .r {
+      transform: rotateY(114deg)
+    }
+
+    .ca {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 200%;
+      background: var(--tile), radial-gradient(62% 46% at 50% 44%, #82203a, transparent 72%), linear-gradient(#4a0d1f, #1f040d)
+    }
+
+    .half.l .ca {
+      left: 0
+    }
+
+    .half.r .ca {
+      right: 0
+    }
+
+    .cfr {
+      position: absolute;
+      inset: 12px;
+      border: 2px solid;
+      border-image: var(--foil) 1;
+      outline: 1px solid rgba(232, 200, 116, .5);
+      outline-offset: -9px;
+      pointer-events: none
+    }
+
+    .cm {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      width: 560px;
+      margin: -280px 0 0 -280px;
+      opacity: .16;
+      color: var(--gold2);
+      pointer-events: none
+    }
+
+    .cm svg,
+    .arc svg {
+      width: 100%
+    }
+
+    .gt {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 3
+    }
+
+    .gt svg,
+    .gar svg {
+      width: 100%;
+      height: auto;
+      transform-origin: 50% 0;
+      animation: swayg 7s ease-in-out infinite alternate
+    }
+
+    @keyframes swayg {
+      to {
+        transform: rotate(.4deg) translateX(2px)
+      }
+    }
+
+    .mantra {
+      position: absolute;
+      top: 104px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: var(--d);
+      color: var(--gold2);
+      font-size: 17px;
+      z-index: 3;
+      animation: up 1.2s both
+    }
+
+    .arc {
+      position: absolute;
+      left: 50%;
+      top: 132px;
+      bottom: 112px;
+      width: min(84%, 380px);
+      translate: -50% 0
+    }
+
+    .arc svg {
+      height: 100%
+    }
+
+    .ctxt {
+      position: absolute;
+      left: 50%;
+      translate: -50% 0;
+      top: 178px;
+      bottom: 250px;
+      width: min(66%, 290px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 3
+    }
+
+    .eyebrow {
+      font-family: var(--d);
+      font-size: 14.5px;
+      color: #f3dcc4;
+      line-height: 1.5;
+      animation: up 1.2s .2s both
+    }
+
+    .nm {
+      font-family: var(--n);
+      font-size: calc(var(--ns)*clamp(40px, min(13vw, 7.4vh), 60px));
+      line-height: 1.12;
+      background: linear-gradient(110deg, #a8802f 15%, #fff3c9 40%, #e8c874 50%, #a8802f 75%) 0 0/250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: foil 7s linear infinite, up 1.3s .5s both
+    }
+
+    .amp {
+      color: var(--gold2);
+      font-size: 18px;
+      line-height: 1.3;
+      animation: beat 1.6s ease-in-out infinite
+    }
+
+    @keyframes beat {
+      50% {
+        transform: scale(1.3)
+      }
+    }
+
+    .cdate {
+      font-family: var(--d);
+      color: #f3dcc4;
+      margin-top: 10px;
+      font-size: 15px;
+      animation: up 1.2s 1.1s both
+    }
+
+    .gb {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3
+    }
+
+    .gb svg {
+      width: 100%;
+      height: auto
+    }
+
+    .cdy {
+      position: absolute;
+      bottom: 92px;
+      width: 32px;
+      z-index: 3
+    }
+
+    .cdy.a {
+      left: 12%
+    }
+
+    .cdy.b {
+      right: 12%
+    }
+
+    #openBtn {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      bottom: 196px;
+      translate: -50% 0;
+      width: 88px;
+      height: 88px;
+      border: 0;
+      cursor: pointer;
+      color: var(--g4);
+      font-family: var(--d);
+      font-size: 27px;
+      border-radius: 50% 46% 52% 48%/48% 52% 46% 50%;
+      background: radial-gradient(circle at 35% 28%, #e0486f, #a1163b 52%, #5c0a20);
+      box-shadow: inset 0 0 0 4px rgba(232, 200, 116, .55), inset 0 6px 10px rgba(255, 255, 255, .28), inset 0 -8px 12px rgba(0, 0, 0, .55), 0 10px 26px rgba(0, 0, 0, .65);
+      animation: seal 2.4s ease-in-out infinite;
+      transition: transform .7s, opacity .7s
+    }
+
+    #openBtn i {
+      font-style: normal;
+      color: #ffb3c6;
+      font-size: 14px;
+      margin: 0 2px
+    }
+
+    @keyframes seal {
+      50% {
+        filter: drop-shadow(0 0 14px rgba(255, 120, 150, .8)) brightness(1.15)
+      }
+    }
+
+    #cover.open #openBtn {
+      transform: scale(2.2);
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .tap {
+      position: absolute;
+      z-index: 6;
+      left: 0;
+      right: 0;
+      text-align: center;
+      bottom: 164px;
+      font-family: var(--d);
+      font-size: 15px;
+      color: var(--gold2);
+      transition: opacity .4s
+    }
+
+    #cover.open .tap {
+      opacity: 0
+    }
+
+    .petal {
+      position: fixed;
+      top: -30px;
+      z-index: 75;
+      width: 13px;
+      height: 17px;
+      border-radius: 70% 0 70% 0;
+      pointer-events: none;
+      animation: fall linear forwards
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate3d(var(--x), 110vh, 0) rotate(var(--r));
+        opacity: .2
+      }
+    }
+
+    /* ===== sections ===== */
+    section {
+      position: relative;
+      overflow: hidden;
+      padding: 112px 30px 112px
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--tile);
+      pointer-events: none
+    }
+
+    section::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 2px solid;
+      border-image: var(--foil) 1;
+      outline: 1px solid var(--line);
+      outline-offset: -9px;
+      pointer-events: none;
+      z-index: 3
+    }
+
+    .lt {
+      --fg: #4a0d1f;
+      --ac: #8e1b34;
+      --mu: #6e5148;
+      --line: rgba(138, 100, 32, .55);
+      background: radial-gradient(80% 36% at 50% 0, #fffdf6, transparent 72%), linear-gradient(#fbf3e0, #f2e2bf);
+      color: var(--fg)
+    }
+
+    .dk {
+      --fg: #fbf3e0;
+      --ac: #e8c874;
+      --mu: #ecd7c4;
+      --line: rgba(232, 200, 116, .5);
+      background: radial-gradient(90% 38% at 50% 0, rgba(142, 27, 52, .85), transparent 72%), linear-gradient(#4a0d1f, #240610);
+      color: var(--fg)
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 4;
+      text-align: center
+    }
+
+    .fc {
+      position: absolute;
+      width: 132px;
+      height: 132px;
+      pointer-events: none;
+      z-index: 2
+    }
+
+    .fc svg {
+      width: 100%;
+      height: 100%;
+      transform-origin: 0 0;
+      animation: fsway 6s ease-in-out infinite alternate
+    }
+
+    @keyframes fsway {
+      to {
+        transform: rotate(2.2deg) scale(1.02)
+      }
+    }
+
+    .fc.a {
+      top: 14px;
+      left: 14px
+    }
+
+    .fc.b {
+      top: 14px;
+      right: 14px;
+      scale: -1 1
+    }
+
+    .fc.c {
+      bottom: 14px;
+      left: 14px;
+      scale: 1 -1
+    }
+
+    .fc.d {
+      bottom: 14px;
+      right: 14px;
+      scale: -1 -1
+    }
+
+    .art {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1
+    }
+
+    .art svg {
+      width: 100%;
+      height: auto
+    }
+
+    .art.s {
+      position: relative;
+      margin: 0 auto
+    }
+
+    .gar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5;
+      pointer-events: none
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(5px);
+      transition: opacity 1s, transform 1s cubic-bezier(.2, .7, .2, 1), filter 1s
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none;
+      filter: none
+    }
+
+    .mu {
+      color: var(--mu)
+    }
+
+    h2.t {
+      font-size: 35px;
+      letter-spacing: .02em;
+      margin-bottom: 6px
+    }
+
+    .dk h2.t,
+    .dk .big,
+    .dk .kids,
+    .dk .sub {
+      background: linear-gradient(110deg, #c9a24d 20%, #fff3c9 45%, #e8c874 55%, #c9a24d 80%) 0 0/250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: foil 8s linear infinite
+    }
+
+    .lt h2.t,
+    .lt .gan,
+    .lt .pill,
+    .lt .sub,
+    .gcard h2 {
+      background: linear-gradient(110deg, #5a0f22 20%, #c4344f 45%, #8a1c34 55%, #5a0f22 80%) 0 0/250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: foil 9s linear infinite
+    }
+
+    @keyframes foil {
+      to {
+        background-position: -250% 0
+      }
+    }
+
+    @keyframes up {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+        filter: blur(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+        filter: none
+      }
+    }
+
+    .dvd {
+      width: 200px;
+      height: 16px;
+      margin: 10px auto 18px
+    }
+
+    .gan {
+      font-family: var(--d);
+      font-size: 26px
+    }
+
+    .inv {
+      font-family: var(--d);
+      font-size: 14px;
+      color: var(--mu);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 12px;
+      justify-content: center;
+      margin-top: 4px
+    }
+
+    .gcard {
+      position: relative;
+      margin: 24px auto;
+      padding: 92px 22px 34px;
+      background: linear-gradient(#fffdf6, #fff4dc) padding-box, var(--foil) border-box;
+      border: 3px solid transparent;
+      border-radius: 999px 999px 22px 22px;
+      box-shadow: 0 22px 44px rgba(74, 13, 31, .2)
+    }
+
+    .gcard h2 {
+      font-size: calc(var(--ns)*40px);
+      line-height: 1.2
+    }
+
+    .gcard h2::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      margin: 8px auto 0;
+      background: linear-gradient(90deg, transparent, #c9a24d, transparent);
+      transition: width 1.6s .5s
+    }
+
+    .gcard.in h2::after {
+      width: 170px
+    }
+
+    .gcard p {
+      color: var(--mu);
+      margin-top: 4px
+    }
+
+    .gcard p::first-line {
+      color: var(--ac);
+      font-weight: 600
+    }
+
+    .gcard .art {
+      left: 50%;
+      top: 26px;
+      width: 92px;
+      margin-left: -46px;
+      opacity: .95
+    }
+
+    .pill {
+      font-family: var(--d);
+      font-size: 22px
+    }
+
+    /* muhurat */
+    .big {
+      font-family: var(--d);
+      font-size: clamp(25px, 7vw, 31px);
+      margin: 2px 0;
+      color: var(--ac)
+    }
+
+    .tb {
+      position: relative;
+      width: 158px;
+      height: 158px;
+      margin: 24px auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(#5a0f22, #2a0610) padding-box, var(--foil) border-box;
+      border: 3px solid transparent;
+      box-shadow: 0 0 44px rgba(232, 200, 116, .28)
+    }
+
+    .tb::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 1px dashed rgba(232, 200, 116, .7);
+      animation: spin 40s linear infinite
+    }
+
+    .tb span {
+      font-family: var(--d);
+      font-size: 25px;
+      line-height: 1.3;
+      color: #fff2b8;
+      padding: 0 10px
+    }
+
+    .cd {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 30px auto 0
+    }
+
+    .cd div {
+      position: relative;
+      padding: 12px 2px;
+      border-radius: 50% 50% 14px 14px/38% 38% 14px 14px;
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .cd b {
+      display: block;
+      font-family: var(--d);
+      font-weight: 400;
+      font-size: 30px;
+      color: var(--ac);
+      line-height: 1.35
+    }
+
+    .cd span {
+      font-size: 13px;
+      color: var(--mu)
+    }
+
+    .cd b.flip {
+      animation: roll .5s ease both
+    }
+
+    @keyframes roll {
+      from {
+        transform: translateY(-45%);
+        opacity: 0
+      }
+
+      to {
+        transform: none;
+        opacity: 1
+      }
+    }
+
+    @property --a {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false
+    }
+
+    @keyframes ang {
+      to {
+        --a: 360deg
+      }
+    }
+
+    .archcard::before,
+    .cd div::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: conic-gradient(from var(--a), rgba(232, 200, 116, .35) 0 55%, #f8e3a0 85%, rgba(232, 200, 116, .35));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: ang 6s linear infinite;
+      pointer-events: none
+    }
+
+    /* programme */
+    #s3 {
+      padding-top: 84px;
+      padding-bottom: 84px
+    }
+
+    .tl {
+      position: relative;
+      text-align: left;
+      margin-top: 20px;
+      padding-left: 28px
+    }
+
+    .tl::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 10px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(var(--ac), transparent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 2.4s ease
+    }
+
+    .tl.on::before {
+      transform: none
+    }
+
+    .ev {
+      position: relative;
+      padding: 11px 18px 11px 20px;
+      margin: 0 0 12px;
+      border-radius: 16px;
+      border: 1.5px solid transparent;
+      background: linear-gradient(#fffdf6, #fff3da) padding-box, var(--foil) border-box;
+      box-shadow: 0 10px 24px rgba(74, 13, 31, .14)
+    }
+
+    .ev::before {
+      content: "";
+      position: absolute;
+      left: -27px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      background: var(--foil);
+      box-shadow: 0 0 0 4px rgba(142, 27, 52, .18)
+    }
+
+    .ev h3 {
+      font-size: 22px;
+      color: var(--fg)
+    }
+
+    .ev p {
+      color: var(--ac);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 2px
+    }
+
+    /* venue */
+    .archcard {
+      position: relative;
+      border-radius: 999px 999px 18px 18px;
+      padding: 96px 22px 36px;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, .05);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .12)
+    }
+
+    .archcard h3 {
+      font-size: 25px;
+      color: var(--ac);
+      margin-bottom: 6px
+    }
+
+    .archcard .art {
+      left: 50%;
+      top: 26px;
+      width: 104px;
+      margin-left: -52px
+    }
+
+    .btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-family: var(--d);
+      font-size: 16px;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      color: var(--m1);
+      background: linear-gradient(135deg, #fff3c9, var(--gold));
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .35)
+    }
+
+    .btn.o {
+      background: none;
+      color: var(--gold2)
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .65), transparent);
+      transform: skewX(-20deg);
+      animation: sheen 3.6s ease-in-out infinite
+    }
+
+    @keyframes sheen {
+      to {
+        left: 140%
+      }
+    }
+
+    /* families */
+    .sub {
+      font-family: var(--d);
+      color: var(--ac);
+      font-size: 21px;
+      margin: 36px 0 8px;
+      line-height: 1.4
+    }
+
+    .cp {
+      display: grid;
+      grid-template-columns: 1fr 18px 1fr;
+      gap: 4px;
+      align-items: center;
+      padding: 12px 8px;
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .62);
+      font-size: 14.5px;
+      line-height: 1.45;
+      box-shadow: 0 6px 16px rgba(74, 13, 31, .07)
+    }
+
+    .cp span:first-child {
+      text-align: right
+    }
+
+    .cp span:last-child {
+      text-align: left
+    }
+
+    .cp i {
+      font-style: normal;
+      color: var(--ac);
+      text-align: center;
+      font-size: 12px
+    }
+
+    .cp.one {
+      display: block
+    }
+
+    .cp.one span {
+      display: block;
+      text-align: center
+    }
+
+    .cp em {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      color: var(--mu)
+    }
+
+    .cp.one em {
+      display: inline;
+      margin-left: 6px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center
+    }
+
+    .chips span {
+      padding: 6px 14px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      font-size: 14.5px;
+      background: rgba(255, 255, 255, .62)
+    }
+
+    .kids {
+      font-family: var(--d);
+      font-size: 23px;
+      margin-top: 4px
+    }
+
+    /* motion helpers */
+    .spin {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: spin 150s linear infinite;
+      fill: none
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .sw {
+      transform-box: fill-box;
+      transform-origin: 50% 0;
+      animation: swing 4s ease-in-out infinite alternate
+    }
+
+    @keyframes swing {
+      from {
+        transform: rotate(-5deg)
+      }
+
+      to {
+        transform: rotate(5deg)
+      }
+    }
+
+    .rg {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: swing 4s ease-in-out infinite alternate
+    }
+
+    .fl {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: flick 1.2s ease-in-out infinite alternate
+    }
+
+    @keyframes flick {
+      from {
+        transform: scale(1, .9) rotate(-3deg);
+        opacity: .8
+      }
+
+      to {
+        transform: scale(.9, 1.1) rotate(3deg);
+        opacity: 1
+      }
+    }
+
+    .tw {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: tw 2.6s ease-in-out infinite
+    }
+
+    @keyframes tw {
+      50% {
+        opacity: .15;
+        transform: scale(.4)
+      }
+    }
+
+    .bl {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: bloom 5s ease-in-out infinite alternate
+    }
+
+    @keyframes bloom {
+      to {
+        transform: scale(1.07)
+      }
+    }
+
+    .sp {
+      position: absolute;
+      color: #f8dd9a;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      animation: spf linear infinite
+    }
+
+    @keyframes spf {
+      15% {
+        opacity: .8
+      }
+
+      to {
+        transform: translateY(-360px) rotate(90deg);
+        opacity: 0
+      }
+    }
+
+    .phone .art:not(.s) {
+      translate: 0 var(--py, 0)
+    }
+
+    #dots {
+      position: fixed;
+      right: max(8px, calc(50vw - 234px));
+      top: 50%;
+      translate: 0 -50%;
+      z-index: 78;
+      display: none;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    body.opened #dots {
+      display: flex
+    }
+
+    #dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: all .35s
+    }
+
+    #dots button.on {
+      background: var(--gold2);
+      height: 22px;
+      border-radius: 8px
+    }
+
+    /* editor */
+    #ed {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      width: min(100%, 480px);
+      max-height: 90vh;
+      overflow: auto;
+      z-index: 90;
+      background: var(--cream);
+      color: var(--em);
+      border-radius: 20px 20px 0 0;
+      padding: 18px 16px calc(28px + env(safe-area-inset-bottom, 0px));
+      transform: translateY(105%);
+      transition: transform .4s;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, .6);
+      font-size: 15px;
+      line-height: 1.4
+    }
+
+    #ed.on {
+      transform: none
+    }
+
+    #ed h3 {
+      font-size: 22px;
+      margin-bottom: 2px
+    }
+
+    #ed small {
+      color: #6b4a45;
+      display: block;
+      margin-bottom: 10px
+    }
+
+    #ed label {
+      display: block;
+      font-weight: 600;
+      margin: 12px 0 3px
+    }
+
+    #ed input,
+    #ed textarea {
+      width: 100%;
+      border: 1px solid #b99a55;
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #fff;
+      font-size: 15px;
+      margin-bottom: 5px;
+      color: var(--em)
+    }
+
+    #ed .r {
+      display: flex;
+      gap: 6px
+    }
+
+    #ed .r>* {
+      flex: 1;
+      min-width: 0
+    }
+
+    #ed .acts {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      position: sticky;
+      bottom: -8px;
+      background: var(--cream);
+      padding: 8px 0
+    }
+
+    #ed button {
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      padding: 10px 18px;
+      background: #fff;
+      color: var(--em);
+      cursor: pointer;
+      font-size: 15px
+    }
+
+    #ed button.p {
+      background: var(--em);
+      color: var(--gold2)
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition-duration: .01s !important
+      }
+
+      .rv {
+        opacity: 1;
+        transform: none;
+        filter: none
+      }
+    }
+  </style>
+</head>
+
+<body class="lock">
+  <button id="lg" class="fab" type="button">English</button>
+  <button id="ebtn" class="fab" type="button" aria-label="Edit details">✎</button>
+  <div id="bar"></div>
+
+  <div id="cover">
+    <div class="half l">
+      <div class="ca"></div>
+    </div>
+    <div class="half r" aria-hidden="true">
+      <div class="ca"></div>
+    </div>
+    <button id="openBtn" type="button" aria-label="Open invitation"><span>ओ<i>♥</i>भ</span></button>
+    <p class="tap" data-en="Touch the seal to open">आमंत्रण उघडण्यासाठी सीलला स्पर्श करा</p>
+  </div>
+
+  <div class="phone">
+    <section id="s1" class="lt fr nt">
+      <div class="gar" id="hg"></div>
+      <div class="art" data-a="mandala" style="width:620px;left:50%;top:50%;margin:-310px 0 0 -310px;opacity:.09"></div>
+      <div class="wrap" style="padding-top:34px">
+        <div class="gan rv" data-en="|| Gajanan Prasanna ||">|| गजानन प्रसन्न ||</div>
+        <div class="inv rv"><span data-en="|| Shri Tukai Aai Prasanna ||">|| श्री तुकाई आई प्रसन्न ||</span><span
+            data-en="|| Shri Khandoba Prasanna ||">|| श्री खंडोबा प्रसन्न ||</span><span
+            data-en="|| Shri Bhairavnath Prasanna ||">|| श्री भैरवनाथ प्रसन्न ||</span></div>
+        <div class="dvd art s" data-a="divider"></div>
+        <p class="rv mu" data-en="With warm regards.<br>By the grace of God, our son">सप्रेम नमस्कार वि. वि.<br>आमच्या
+          येथे श्री कृपेने आमचा सुपुत्र</p>
+        <div class="gcard rv">
+          <div class="art" data-a="lotus"></div>
+          <h2 data-k="gn" data-pm="चि. " data-pe="Mr. "></h2>
+          <p data-k="gd"></p>
+        </div>
+        <div class="art s rv" data-a="rings" style="width:100px"></div>
+        <div class="pill rv" data-en="!! Shubh Vivah !!">!! शुभ विवाह !!</div>
+        <div class="gcard rv">
+          <div class="art" data-a="lotus"></div>
+          <h2 data-k="bn" data-pm="चि. सौ. कां. " data-pe="Miss "></h2>
+          <p data-k="bd"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="s2" class="dk fr">
+      <div class="art" data-a="mandala" style="width:600px;left:50%;top:46%;margin:-300px 0 0 -300px;opacity:.12"></div>
+      <div class="wrap">
+        <h2 class="t rv" data-en="The Auspicious Muhurat">शुभ मुहूर्त</h2>
+        <div class="dvd art s" data-a="divider"></div>
+        <p class="rv mu" data-k="pk"></p>
+        <p class="big rv" data-k="dt"></p>
+        <div class="tb rv"><span data-k="tm"></span></div>
+        <p class="rv mu"
+          data-en="May this moment of joy and pride in our family be made more auspicious by your presence. With this heartfelt wish, we warmly invite you. Please grace this occasion and bless the couple with your love, blessings and good wishes. This is our humble request.">
+          आमच्या कुटुंबातील आनंदाचा आणि अभिमानाचा क्षण आपल्या साक्षीने अधिक मंगलमय व्हावा, या सदिच्छेने आपणांस सस्नेह
+          निमंत्रित करीत आहोत. तरी या शुभ प्रसंगी आपण उपस्थित राहून वधू-वरांना प्रेम, आशीर्वाद व शुभेच्छांची अनमोल भेट
+          द्यावी, ही नम्र विनंती.</p>
+        <div class="cd rv">
+          <div><b id="cD">--</b><span data-en="Days">दिवस</span></div>
+          <div><b id="cH">--</b><span data-en="Hours">तास</span></div>
+          <div><b id="cM">--</b><span data-en="Minutes">मिनिटे</span></div>
+          <div><b id="cS">--</b><span data-en="Seconds">सेकंद</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="s3" class="lt fr">
+      <div class="art" data-a="lotus" style="width:300px;right:-70px;bottom:40px;opacity:.4"></div>
+      <div class="wrap">
+        <h2 class="t rv" data-en="Programme">कार्यक्रम</h2>
+        <div class="dvd art s" data-a="divider"></div>
+        <div id="evl" class="tl"></div>
+      </div>
+    </section>
+
+    <section id="s4" class="dk fr">
+      <div class="art" data-a="lamp" style="width:38px;left:12%;top:0"></div>
+      <div class="art" data-a="lamp" style="width:38px;right:12%;top:0"></div>
+      <div class="wrap">
+        <h2 class="t rv" data-en="Venue">विवाह स्थळ</h2>
+        <div class="archcard rv">
+          <div class="art" data-a="lotus"></div>
+          <h3 data-k="vn"></h3>
+          <p style="color:var(--cream)" data-k="va"></p>
+        </div>
+        <div class="btns rv">
+          <a id="mp" class="btn" target="_blank" rel="noopener" href="#" data-en="View Map">नकाशा पहा</a>
+          <a id="cl" class="btn o" target="_blank" rel="noopener" href="#" data-en="Add to Calendar">कॅलेंडरमध्ये
+            जोडा</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="s5" class="lt fr">
+      <div class="art" data-a="mandala" style="width:520px;right:-260px;top:-120px;opacity:.1"></div>
+      <div class="wrap">
+        <h2 class="t rv" data-en="With Best Compliments">आपले स्नेहांकित</h2>
+        <div class="dvd art s" data-a="divider"></div>
+        <div id="l1"></div>
+        <p class="sub rv" data-en="Kindly honour the above request and grace us with your presence">वरील विनंतीस मान
+          देऊन अगत्य येण्याची कृपा करावी</p>
+        <div id="l2"></div>
+        <p class="sub rv" data-en="Organisers">कार्यवाहक</p>
+        <div id="l3" class="chips"></div>
+        <p class="sub rv" data-en="Special Support">विशेष सहयोग</p>
+        <div id="l4" class="chips"></div>
+      </div>
+    </section>
+
+    <section id="s6" class="dk fr">
+      <div class="art" data-a="lotus" style="width:340px;left:50%;margin-left:-170px;bottom:60px;opacity:.3"></div>
+      <div class="wrap">
+        <div class="art s rv" data-a="rings" style="width:90px;margin-bottom:10px"></div>
+        <h2 class="t rv" data-en="Do come to our Mama’s wedding!">आमच्या मामाच्या लग्नाला यायचं हं...</h2>
+        <p class="kids rv" data-k="kd"></p>
+        <p class="mu rv" style="margin:34px 0 20px;font-size:15px" data-en="We eagerly await your arrival.">आपल्या
+          आगमनाची आम्ही आतुरतेने वाट पाहत आहोत.</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="ed" role="dialog" aria-label="Edit details"></div>
+
+  <script>
+    (function () {
+      var lang = 'mr', dg = '०१२३४५६७८९', LINK = 'https://claude.ai/artifact/43z6PMJ8D6swnEUUoTZgEM';
+      /* ---------- default content (editable) ---------- */
+      var DEF = {
+        gn: { mr: 'ओमकार', en: 'Omkar' }, bn: { mr: 'भक्ती', en: 'Bhakti' },
+        gd: { mr: 'कनिष्ठ पुत्र – श्री. प्रदिप ज्ञानोबा आगवणे\nमु. पो. निबुंत, ता. बारामती, जि. पुणे', en: 'Younger son of Shri Pradeep Dnyanoba Agawane\nAt Post Nimbut, Tal. Baramati, Dist. Pune' },
+        bd: { mr: 'ज्येष्ठ कन्या – श्री. भगवान धोंडु राणे\nमु. पो. सिंधुदुर्ग, कणकवली', en: 'Eldest daughter of Shri Bhagwan Dhondu Rane\nAt Post Sindhudurg, Kankavali' },
+        pk: { mr: 'कार्तिक कृष्ण पक्ष, शके १९४८', en: 'Kartik Krishna Paksha, Shake 1948' },
+        dt: { mr: 'शनिवार, २१ नोव्हेंबर २०२६', en: 'Saturday, 21 November 2026' },
+        tm: { mr: 'दुपारी १२:४७ वा.', en: '12:47 PM' },
+        vn: { mr: 'धनंजय टॉकिज अ‍ॅण्ड ग्राउंड', en: 'Dhananjay Talkies and Ground' },
+        va: { mr: 'चक्रेश्वर महादेव मंदिर, सोपारा तलाव,\nचाबुक शाह बाबा दरगाह जवळ,\nनालासोपारा (प.) ४०१ २०३', en: 'Chakreshwar Mahadev Mandir, Sopara Talav,\nNear Chabuk Shah Baba Dargah,\nNalasopara (W) 401 203' },
+        kd: { mr: 'प्राची, यश, अदिती, आयुष, शारवी, स्पृहा', en: 'Prachi, Yash, Aditi, Ayush, Sharvi, Spruha' },
+        iso: '2026-11-21T12:47',
+        EV: 'साखरपुडा | Sakharpuda (Engagement) | सकाळी ०९:०० वा. | 9:00 AM\nहळदी समारंभ | Haldi Ceremony | सकाळी १०:०० वा. | 10:00 AM\nशुभ मुहूर्त | Shubh Muhurat | दुपारी १२:४७ वा. | 12:47 PM\nस्नेह भोजन | Snehbhojan (Lunch) | दुपारी १:०० वाजता | 1:00 PM\nस्वागत समारंभ | Welcome Reception | दुपारी ३:०० वाजता | 3:00 PM',
+        L1: 'कै. शांताबाई ज्ञानोबा आगवणे | कै. ज्ञानोबा सिताराम आगवणे | Late Mrs. Shantabai Dnyanoba Agawane | Late Mr. Dnyanoba Sitaram Agawane\nकै. राजश्री सुधीर गडकरी (आत्या) | Late Mrs. Rajshri Sudhir Gadkari (Paternal Aunt)\nसौ. वैशाली प्रदिप आगवणे | श्री. प्रदिप ज्ञानोबा आगवणे | Mrs. Vaishali Pradeep Agawane | Mr. Pradeep Dnyanoba Agawane\nसौ. प्रियंका धिरज कांबळे (मुलगी) | श्री. धिरज भानुदास कांबळे (जावई) | Mrs. Priyanka Dhiraj Kamble (Daughter) | Mr. Dhiraj Bhanudas Kamble (Son-in-law)',
+        L2: 'गं.भा. इंदुमती नामदेव आगवणे | कै. नामदेव सिताराम आगवणे | Mrs. Indumati Namdev Agawane | Late Mr. Namdev Sitaram Agawane\nसौ. सावित्रा काशिनाथ आगवणे | श्री. काशीनाथ सिताराम आगवणे | Mrs. Savitra Kashinath Agawane | Mr. Kashinath Sitaram Agawane\nगं.भा. लता विश्वनाथ आगवणे | कै. विश्वनाथ सिताराम आगवणे | Mrs. Lata Vishwanath Agawane | Late Mr. Vishwanath Sitaram Agawane\nगं.भा. मिना राजु आगवणे | कै. राजु ज्ञानोबा आगवणे | Mrs. Mina Raju Agawane | Late Mr. Raju Dnyanoba Agawane\nसौ. रेश्मा संतोष आगवणे | श्री. संतोष नामदेव आगवणे | Mrs. Reshma Santosh Agawane | Mr. Santosh Namdev Agawane\nसौ. पुर्वा सचिन आगवणे | श्री. सचिन नामदेव आगवणे | Mrs. Purva Sachin Agawane | Mr. Sachin Namdev Agawane\nसौ. प्रिती मंगेश आगवणे | श्री. मंगेश काशिनाथ आगवणे | Mrs. Priti Mangesh Agawane | Mr. Mangesh Kashinath Agawane\nसौ. वर्षा विरेंद्र आगवणे | श्री. विरेंद्र विश्वनाथ आगवणे | Mrs. Varsha Virendra Agawane | Mr. Virendra Vishwanath Agawane\nसौ. मानसी संदेश आगवणे | श्री. संदेश विश्वनाथ आगवणे | Mrs. Mansi Sandesh Agawane | Mr. Sandesh Vishwanath Agawane\nसौ. लक्ष्मी वसंत मोरे (आजी) | श्री. वसंत सिताराम मोरे (आजोबा) | Mrs. Laxmi Vasant More (Grandmother) | Mr. Vasant Sitaram More (Grandfather)\nसौ. स्वाती सुनिल मोरे (मामी) | श्री. सुनील वसंत मोरे (मामा) | Mrs. Swati Sunil More (Aunt) | Mr. Sunil Vasant More (Uncle)\nगं.भा. सोनल अनिल मोरे (मामी) | कै. अनिल वसंत मोरे (मामा) | Mrs. Sonal Anil More (Aunt) | Late Mr. Anil Vasant More (Uncle)',
+        L3: 'स्वप्निल सुनिल मोरे | Swapnil Sunil More\nआदेश राजु आगवणे | Adesh Raju Agawane\nगुलशन किशनचंद भाटिया | Gulshan Kishanchand Bhatia\nकपिल हिरामन कानिंदे | Kapil Hiraman Kaninde\nसिद्धेश राजु आगवणे | Siddhesh Raju Agawane\nसिद्धेश अनिल मोरे | Siddhesh Anil More',
+        L4: 'सुवर्णा सुखदेव भवाळ | Suvarna Sukhdev Bhaval\nसोनल शरद जाधव | Sonal Sharad Jadhav\nवनिता कपिल कानिंदे | Vanita Kapil Kaninde\nभारती संतोष शिंदे | Bharati Santosh Shinde\nशिवानी राजु आगवणे | Shivani Raju Agawane\nसाक्षी राजु आगवणे | Sakshi Raju Agawane'
+      };
+      var S = JSON.parse(JSON.stringify(DEF)); if (/edit/.test(location.search + location.hash)) document.body.classList.add('edit');
+      function merge(o) { if (!o) return; for (var k in DEF) if (o[k] !== undefined && typeof o[k] == typeof DEF[k]) S[k] = o[k] }
+      try { merge(JSON.parse(localStorage.getItem('inv'))) } catch (e) { }
+      function dec(t) { return JSON.parse(decodeURIComponent(escape(atob(t.replace(/-/g, '+').replace(/_/g, '/'))))) }
+      function enc(o) { return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '') }
+
+
+      /* ---------- symbols: marigold, jasmine, rose, leaf, gold foil ---------- */
+      (function () {
+        var d = document.createElement('div'); d.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden'; var mg = '', ja = '', i;
+        [[16, 34, 9, 16, '#e8820c', 0], [12, 24, 8, 13, '#f59e0b', 15], [8, 14, 7, 10, '#fbbf24', 0]].forEach(function (r) { for (i = 0; i < r[0]; i++)mg += '<ellipse cy="-' + r[1] + '" rx="' + r[2] + '" ry="' + r[3] + '" fill="' + r[4] + '" stroke="#b45309" stroke-width=".6" transform="rotate(' + (i * 360 / r[0] + r[5]) + ')"/>' });
+        mg += '<circle r="7" fill="#c2410c"/><circle r="3.4" fill="#7c2d12"/>';
+        for (i = 0; i < 5; i++)ja += '<ellipse cy="-15" rx="9" ry="17" fill="#fffaf0" stroke="#e3d2a4" stroke-width=".8" transform="rotate(' + i * 72 + ')"/>'; ja += '<circle r="5" fill="#f2c14e"/>';
+        d.innerHTML = '<svg width="0" height="0"><defs>' +
+          '<linearGradient id="gf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6420"/><stop offset=".25" stop-color="#e8c874"/><stop offset=".45" stop-color="#fff2b8"/><stop offset=".65" stop-color="#c9a24d"/><stop offset="1" stop-color="#8a6420"/></linearGradient>' +
+          '<linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a8350"/><stop offset="1" stop-color="#173f25"/></linearGradient>' +
+          '<symbol id="mg" viewBox="-50 -50 100 100">' + mg + '</symbol><symbol id="ja" viewBox="-30 -30 60 60">' + ja + '</symbol>' +
+          '<symbol id="lf" viewBox="0 0 40 100"><path d="M20 0C42 26 42 72 20 100 -2 72 -2 26 20 0Z" fill="url(#lg2)"/><path d="M20 8V94" stroke="#8fcf9c" stroke-width="1.2"/></symbol>' +
+          '<symbol id="rs" viewBox="-50 -50 100 100"><circle r="46" fill="#6e1429"/><circle r="36" fill="#8e1b34"/><circle r="26" fill="#a8284a"/><circle r="16" fill="#8e1b34"/><circle r="7" fill="#6e1429"/><path d="M-36 0A36 36 0 0 1 0-36M36 0A36 36 0 0 1 0 36M-26 0A26 26 0 0 0 0 26M26 0A26 26 0 0 0 0-26" stroke="#e9708f" stroke-width="2" fill="none" opacity=".75"/></symbol>' +
+          '</defs></svg>'; document.body.insertBefore(d, document.body.firstChild)
+      })();
+
+      /* ---------- ornaments ---------- */
+      var G = '#c9a24d', G2 = '#e8c874';
+      function cluster() {
+        var o = '', L = [[70, 14, 100, 50], [16, 70, 10, 50], [48, 48, 45, 50], [92, 42, 80, 46], [42, 92, 20, 46]], F = [['mg', 30, 30, 44], ['mg', 72, 20, 36], ['mg', 20, 74, 36], ['rs', 56, 56, 26], ['mg', 96, 50, 26], ['mg', 46, 98, 26], ['ja', 78, 72, 18], ['ja', 66, 40, 16], ['ja', 40, 68, 15], ['mg', 108, 16, 20], ['mg', 14, 108, 20]];
+        L.forEach(function (l) { var w = l[3] * .42; o += '<use href="#lf" x="' + (l[0] - w / 2) + '" y="' + (l[1] - l[3] / 2) + '" width="' + w + '" height="' + l[3] + '" transform="rotate(' + l[2] + ' ' + l[0] + ' ' + l[1] + ')"/>' });
+        F.forEach(function (f) { o += '<use href="#' + f[0] + '" x="' + (f[1] - f[3] / 2) + '" y="' + (f[2] - f[3] / 2) + '" width="' + f[3] + '" height="' + f[3] + '"/>' });
+        return '<svg viewBox="0 0 130 130">' + o + '</svg>'
+      }
+      function garland() {
+        var o = '<path d="M0 6Q240 14 480 6" stroke="url(#gf)" stroke-width="2.4" fill="none"/>', x, i, y0, L;
+        for (x = 0; x <= 480; x += 24) { y0 = 6 + 8 * Math.sin(x / 480 * Math.PI); o += '<use href="#mg" x="' + (x - 11) + '" y="' + (y0 - 11) + '" width="22" height="22"/>' }
+        for (x = 16, i = 0; x < 480; x += 32, i++) {
+          L = [58, 34, 46][i % 3]; y0 = 6 + 8 * Math.sin(x / 480 * Math.PI);
+          o += '<line x1="' + x + '" y1="' + y0 + '" x2="' + x + '" y2="' + (y0 + L) + '" stroke="#c9a24d" stroke-width="1"/><use href="#lf" x="' + (x - 5) + '" y="' + (y0 + 4) + '" width="10" height="26" transform="rotate(28 ' + x + ' ' + (y0 + 4) + ')"/><use href="#lf" x="' + (x - 5) + '" y="' + (y0 + 4) + '" width="10" height="26" transform="rotate(-28 ' + x + ' ' + (y0 + 4) + ')"/><use href="#' + (i % 2 ? 'ja' : 'mg') + '" x="' + (x - 13) + '" y="' + (y0 + L - 2) + '" width="26" height="26"/>'
+        }
+        return '<svg viewBox="0 0 480 96">' + o + '</svg>'
+      }
+      function gbot() {
+        var o = '', x, i;
+        for (x = -10, i = 0; x <= 500; x += 26, i++)o += '<use href="#lf" x="' + (x - 6) + '" y="12" width="14" height="40" transform="rotate(' + (i % 2 ? 60 : -60) + ' ' + x + ' 30)"/>';
+        for (x = 0, i = 0; x <= 490; x += 30, i++) { var s = i % 3 == 1 ? 24 : 30; o += '<use href="#' + (i % 3 == 1 ? 'ja' : 'mg') + '" x="' + (x - s / 2) + '" y="' + (34 + (i % 2) * 6) + '" width="' + s + '" height="' + s + '"/>' }
+        return '<svg viewBox="0 0 480 80">' + o + '</svg>'
+      }
+      function arch() {
+        var o = '', a, x, y;
+        for (a = 180; a <= 360; a += 7) { x = 150 + 134 * Math.cos(a * Math.PI / 180); y = 162 + 134 * Math.sin(a * Math.PI / 180); o += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="2.1" fill="url(#gf)"/>' }
+        return '<svg viewBox="0 0 300 470" fill="none"><path d="M8 470V162A142 142 0 0 1 292 162V470" stroke="url(#gf)" stroke-width="3.5" fill="rgba(30,4,12,.5)"/><path d="M24 470V162A126 126 0 0 1 276 162V470" stroke="url(#gf)" stroke-width="1"/>' + o + '<path d="M150 4c6 9 6 15 0 22-6-7-6-13 0-22z" fill="url(#gf)"/><circle cx="150" cy="30" r="3" fill="url(#gf)"/></svg>'
+      }
+      var A = {
+        lamp: function () { return '<svg viewBox="0 0 60 150"><g class="sw"><path d="M30 0V38" stroke="' + G + '"/><path d="M17 54Q17 42 30 38Q43 42 43 54Z" fill="' + G + '"/><path d="M13 54H47L41 102Q30 114 19 102Z" fill="' + G + '"/><ellipse class="fl" cx="30" cy="80" rx="6" ry="11" fill="#ffd77a"/><path d="M21 64h18M20 92h20" stroke="#3a0a14" stroke-width="1.6"/><circle cx="30" cy="120" r="4" fill="' + G2 + '"/><path d="M30 124v12" stroke="' + G + '"/><circle cx="30" cy="140" r="4.5" fill="' + G2 + '"/></g></svg>' },
+        diya: function () { return '<svg viewBox="0 -26 46 72"><path d="M0 22h46c0 14-10 22-23 22S0 36 0 22z" fill="url(#gf)"/><path d="M5 22h36" stroke="#3a0a14" stroke-width="2"/><g class="fl"><path d="M23 20c-9-10-4-18 0-26 4 8 9 16 0 26z" fill="#f97316"/><path d="M23 18c-4-6-2-10 0-14 2 4 4 8 0 14z" fill="#fde047"/></g></svg>' },
+        lotus: function () { var o = '';[-66, 66, -44, 44, -22, 22, 0].forEach(function (a) { o += '<path transform="translate(100 114) rotate(' + a + ')" d="M0 0C-22-20-20-60 0-90 20-60 22-20 0 0Z" fill="rgba(232,200,116,.2)" stroke="url(#gf)" stroke-width="2"/>' }); return '<svg viewBox="0 0 200 120"><g class="bl">' + o + '</g></svg>' },
+        rings: function () { return '<svg viewBox="0 0 120 70" fill="none"><g class="rg"><circle cx="46" cy="40" r="24" stroke="url(#gf)" stroke-width="4.5"/><circle cx="74" cy="40" r="24" stroke="' + G2 + '" stroke-width="4.5"/><path d="M60 4l6 9-6 9-6-9z" fill="#bdf3ff" stroke="' + G + '"/></g><path class="tw" transform="translate(100 14)" d="M0-8 2-2 8 0 2 2 0 8-2 2-8 0-2-2z" fill="' + G2 + '"/><path class="tw" style="animation-delay:-1s" transform="translate(16 18)" d="M0-6 1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6z" fill="' + G2 + '"/></svg>' },
+        divider: function () { return '<svg viewBox="0 0 200 16" fill="none" stroke="' + G + '"><path d="M0 8H80M120 8H200"/><path d="M100 1l7 7-7 7-7-7z" fill="' + G + '"/><circle cx="84" cy="8" r="2" fill="' + G + '"/><circle cx="116" cy="8" r="2" fill="' + G + '"/></svg>' },
+        mandala: function () { var m = '<circle r="192"/><circle r="186" stroke-dasharray="2 6"/><circle r="92"/><circle r="40"/>'; for (var i = 0; i < 12; i++)m += '<ellipse cy="-140" rx="20" ry="52" transform="rotate(' + i * 30 + ')"/><ellipse cy="-88" rx="10" ry="26" transform="rotate(' + (i * 30 + 15) + ')"/>'; return '<svg viewBox="-200 -200 400 400"><g class="spin" stroke="currentColor" stroke-width="1.1">' + m + '</g></svg>' }
+      };
+
+      /* ---------- build cover (same art in both halves, so it splits down the middle) ---------- */
+      function coverArt() { return '<div class="cfr"></div><div class="cm">' + A.mandala() + '</div><div class="gt">' + garland() + '</div><p class="mantra" data-en="|| Shri Ganeshaya Namah ||">|| श्री गणेशाय नमः ||</p><div class="arc">' + arch() + '</div><div class="ctxt"><p class="eyebrow" data-en="With joy, we invite you to the wedding of">शुभ विवाहास आपले सस्नेह निमंत्रण</p><h1 class="nm" data-k="gn"></h1><div class="amp">❖</div><h1 class="nm" data-k="bn"></h1><p class="cdate" data-k="dt"></p></div><div class="cdy a">' + A.diya() + '</div><div class="cdy b">' + A.diya() + '</div><div class="gb">' + gbot() + '</div>' }
+      document.querySelectorAll('#cover .ca').forEach(function (e) { e.innerHTML = coverArt() });
+      document.querySelectorAll('[data-a]').forEach(function (e) { e.innerHTML = A[e.dataset.a]() });
+      document.querySelectorAll('.art[data-a=mandala]').forEach(function (e) { if (!e.style.color) e.style.color = 'var(--ac)' });
+      document.getElementById('hg').innerHTML = garland();
+      document.querySelectorAll('.fr').forEach(function (s) { var nt = s.classList.contains('nt');['a', 'b', 'c', 'd'].forEach(function (c) { if (nt && (c == 'a' || c == 'b')) return; var i = document.createElement('i'); i.className = 'fc ' + c; i.innerHTML = cluster(); s.appendChild(i) }) });
+      var cover = document.getElementById('cover'), k;
+      for (k = 0; k < 14; k++) { var h = document.createElement('i'); h.className = 'sp'; h.textContent = '✦'; h.style.cssText = 'left:' + Math.random() * 100 + '%;top:' + (55 + Math.random() * 45) + '%;font-size:' + (8 + Math.random() * 10) + 'px;z-index:7;animation-duration:' + (6 + Math.random() * 6) + 's;animation-delay:-' + Math.random() * 8 + 's'; cover.appendChild(h) }
+
+      /* ---------- open, reveal, progress ---------- */
+      function petals() {
+        if (matchMedia('(prefers-reduced-motion:reduce)').matches) return; var c = ['#f59e0b', '#fbbf24', '#ea580c', '#e8c874', '#b8324a'];
+        for (var i = 0; i < 34; i++) { var p = document.createElement('i'); p.className = 'petal'; p.style.left = Math.random() * 100 + 'vw'; p.style.background = c[i % 5]; p.style.setProperty('--x', (Math.random() * 140 - 70) + 'px'); p.style.setProperty('--r', (Math.random() * 720 - 360) + 'deg'); p.style.animationDuration = (4 + Math.random() * 4) + 's'; p.style.animationDelay = (Math.random() * 1.8) + 's'; document.body.appendChild(p); (function (e) { setTimeout(function () { e.remove() }, 10500) })(p) }
+      }
+      function reveal() {
+        var els = document.querySelectorAll('.rv');
+        if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in') }); return }
+        var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }) }, { threshold: .1 }); els.forEach(function (e) { io.observe(e) })
+      }
+      document.getElementById('openBtn').addEventListener('click', function () { cover.classList.add('open'); document.body.classList.remove('lock'); document.body.classList.add('opened'); petals(); reveal(); setTimeout(function () { cover.remove() }, 2700) });
+      var bar = document.getElementById('bar');
+      addEventListener('scroll', function () { var d = document.documentElement; bar.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%' }, { passive: true });
+
+      /* ---------- rendering ---------- */
+      function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>') }
+      function rows(t) { return t.split('\n').map(function (l) { return l.split('|').map(function (x) { return x.trim() }) }).filter(function (r) { return r[0] }) }
+      function fx(t) { return esc(t).replace(/\((.*?)\)/, '<em>($1)</em>') }
+      function pairs(t) { var e = lang == 'en'; return rows(t).map(function (r) { return r.length < 4 ? '<div class="cp one"><span>' + fx(r[e && r[1] ? 1 : 0]) + '</span></div>' : '<div class="cp"><span>' + fx(r[e ? 2 : 0]) + '</span><i>❖</i><span>' + fx(r[e ? 3 : 1]) + '</span></div>' }).join('') }
+      function chips(t) { return rows(t).map(function (r) { return '<span>' + esc(r[lang == 'en' && r[1] ? 1 : 0]) + '</span>' }).join('') }
+      var tx = document.querySelectorAll('[data-en]'); tx.forEach(function (e) { e.dataset.mr = e.innerHTML });
+      function iso() { var d = new Date(S.iso + (S.iso.length == 16 ? ':00' : '') + '+05:30'); return isNaN(d) ? null : d }
+      function render() {
+        document.documentElement.lang = lang; document.body.classList.toggle('en', lang == 'en');
+        tx.forEach(function (e) { e.innerHTML = lang == 'en' ? e.dataset.en : e.dataset.mr });
+        document.querySelectorAll('[data-k]').forEach(function (e) { e.innerHTML = ((lang == 'en' ? e.dataset.pe : e.dataset.pm) || '') + esc(S[e.dataset.k][lang]) });
+        l1.innerHTML = pairs(S.L1); l2.innerHTML = pairs(S.L2); l3.innerHTML = chips(S.L3); l4.innerHTML = chips(S.L4);
+        evl.innerHTML = rows(S.EV).map(function (r) { return '<div class="ev"><p>' + esc(lang == 'en' && r[3] ? r[3] : r[2] || '') + '</p><h3>' + esc(lang == 'en' && r[1] ? r[1] : r[0]) + '</h3></div>' }).join('');
+        document.getElementById('lg').textContent = lang == 'en' ? 'मराठी' : 'English';
+        var q = encodeURIComponent(S.vn.en + ' ' + S.va.en.replace(/\n/g, ' '));
+        mp.href = 'https://www.google.com/maps/search/?api=1&query=' + q;
+        var d = iso(), f = function (x) { return x.toISOString().replace(/[-:]|\.\d+/g, '') };
+        cl.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(S.gn.en + ' & ' + S.bn.en + ' Wedding') + (d ? '&dates=' + f(d) + '/' + f(new Date(d.getTime() + 3 * 36e5)) : '') + '&location=' + q;
+        var msg = lang == 'en' ? 'You are warmly invited to the wedding of ' + S.gn.en + ' & ' + S.bn.en + '. ' + S.dt.en + ', ' + S.tm.en + '. ' + S.vn.en + '.' : S.gn.mr + ' & ' + S.bn.mr + ' यांच्या शुभ विवाहाचे आपणांस सस्नेह निमंत्रण! ' + S.dt.mr + ', ' + S.tm.mr + '. ' + S.vn.mr + '.';
+
+        document.title = lang == 'en' ? S.gn.en + ' & ' + S.bn.en + ' – Wedding Invitation' : S.gn.mr + ' & ' + S.bn.mr + ' – शुभ विवाह';
+        tick()
+      }
+      function n(v) { return lang == 'mr' ? String(v).replace(/\d/g, function (c) { return dg[c] }) : v }
+      function tick() {
+        var t = iso(), s = t ? Math.max(0, Math.floor((t - Date.now()) / 1000)) : 0;
+        cD.textContent = n(Math.floor(s / 86400)); cH.textContent = n(Math.floor(s % 86400 / 3600)); cM.textContent = n(Math.floor(s % 3600 / 60)); cS.textContent = n(s % 60)
+      }
+      document.getElementById('lg').addEventListener('click', function () { lang = lang == 'mr' ? 'en' : 'mr'; render() });
+      render(); setInterval(tick, 1000);
+
+      /* ---------- editor ---------- */
+      var FS = [['gn', 'Groom name (नाव)'], ['bn', 'Bride name (नाव)'], ['gd', 'Groom details (वराची माहिती)', 2], ['bd', 'Bride details (वधूची माहिती)', 2], ['pk', 'Panchang line (तिथी)'], ['dt', 'Date (दिनांक)'], ['tm', 'Time (वेळ)'], ['vn', 'Venue name (स्थळ)'], ['va', 'Venue address (पत्ता)', 3], ['kd', 'Children’s names (मुलांची नावे)']],
+        LS = [['L1', 'स्नेहांकित couples', 'One per line:  wife (mr) | husband (mr) | wife (en) | husband (en)\nSingle name:  name (mr) | name (en)', 6], ['L2', 'Invitees couples (same format)', '', 9], ['L3', 'Organisers', 'name (mr) | name (en)', 4], ['L4', 'Special support', 'name (mr) | name (en)', 4], ['EV', 'Programme', 'event (mr) | event (en) | time (mr) | time (en)', 4]],
+        ed = document.getElementById('ed');
+      function build() {
+        var h = '<h3>Edit details</h3><small>Change anything below, then press Apply. Changes are saved in this browser only.</small>';
+        FS.forEach(function (f) {
+          var r = f[2] || 1, tag = r > 1 ? 'textarea rows="' + r + '"' : 'input';
+          h += '<label>' + f[1] + '</label><div class="r"><' + tag + ' id="f_' + f[0] + '_mr" placeholder="मराठी"></' + (r > 1 ? 'textarea' : 'input') + '><' + tag + ' id="f_' + f[0] + '_en" placeholder="English"></' + (r > 1 ? 'textarea' : 'input') + '></div>'
+        });
+        h = h.replace(/<input([^>]*)><\/input>/g, '<input$1>');
+        h += '<label>Wedding date &amp; time for countdown</label><input id="f_iso" placeholder="2026-11-21T12:47">';
+        LS.forEach(function (f) { h += '<label>' + f[1] + '</label>' + (f[2] ? '<small>' + esc(f[2]) + '</small>' : '') + '<textarea id="f_' + f[0] + '" rows="' + f[3] + '"></textarea>' });
+        h += '<div class="acts"><button class="p" id="e_ap" type="button">Apply</button><button id="e_rs" type="button">Reset</button><button id="e_x" type="button">Close</button></div>';
+        ed.innerHTML = h;
+        document.getElementById('e_ap').onclick = apply; document.getElementById('e_x').onclick = function () { ed.classList.remove('on') };
+        document.getElementById('e_rs').onclick = function () { S = JSON.parse(JSON.stringify(DEF)); try { localStorage.removeItem('inv') } catch (e) { } fill(); render() };
+      }
+      function fill() {
+        FS.forEach(function (f) { ['mr', 'en'].forEach(function (l) { document.getElementById('f_' + f[0] + '_' + l).value = S[f[0]][l] }) });
+        document.getElementById('f_iso').value = S.iso; LS.forEach(function (f) { document.getElementById('f_' + f[0]).value = S[f[0]] }); link()
+      }
+      function link() { var d = {}; for (var k in DEF) if (JSON.stringify(S[k]) != JSON.stringify(DEF[k])) d[k] = S[k]; }
+      function apply() {
+        FS.forEach(function (f) { ['mr', 'en'].forEach(function (l) { S[f[0]][l] = document.getElementById('f_' + f[0] + '_' + l).value }) });
+        S.iso = document.getElementById('f_iso').value.trim() || DEF.iso; LS.forEach(function (f) { S[f[0]] = document.getElementById('f_' + f[0]).value });
+        try { localStorage.setItem('inv', JSON.stringify(S)) } catch (e) { } render(); link()
+      }
+      build(); fill();
+      document.getElementById('ebtn').addEventListener('click', function () { fill(); ed.classList.add('on') });
+      /* ---------- luxury motion ---------- */
+      document.querySelectorAll('.rv').forEach(function (e, i) { e.style.transitionDelay = ((i % 3) * .1) + 's' });
+      document.querySelectorAll('.dk').forEach(function (s) { for (var i = 0; i < 10; i++) { var p = document.createElement('i'); p.className = 'sp'; p.textContent = '✦'; p.style.left = Math.random() * 100 + '%'; p.style.top = (30 + Math.random() * 70) + '%'; p.style.fontSize = (7 + Math.random() * 9) + 'px'; p.style.animationDuration = (6 + Math.random() * 6) + 's'; p.style.animationDelay = (-Math.random() * 8) + 's'; s.appendChild(p) } });
+      var arts = [].slice.call(document.querySelectorAll('.phone .art:not(.s)')), tk = false;
+      function par() { tk = false; var vh = innerHeight; arts.forEach(function (a) { var r = a.getBoundingClientRect(); a.style.setProperty('--py', ((r.top + r.height / 2 - vh / 2) * -.06).toFixed(1) + 'px') }) }
+      addEventListener('scroll', function () { if (!tk) { tk = true; requestAnimationFrame(par) } }, { passive: true }); par();
+      ['cD', 'cH', 'cM', 'cS'].forEach(function (id) { var el = document.getElementById(id); new MutationObserver(function () { el.classList.remove('flip'); void el.offsetWidth; el.classList.add('flip') }).observe(el, { childList: true }) });
+      var secs = [].slice.call(document.querySelectorAll('.phone section')), nav = document.createElement('nav'); nav.id = 'dots';
+      secs.forEach(function (s, i) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Section ' + (i + 1)); b.onclick = function () { s.scrollIntoView({ behavior: 'smooth' }) }; nav.appendChild(b) }); document.body.appendChild(nav);
+      if ('IntersectionObserver' in window) {
+        var io2 = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { var i = secs.indexOf(x.target);[].forEach.call(nav.children, function (b, j) { b.classList.toggle('on', i == j) }) } }) }, { threshold: .4 }); secs.forEach(function (s) { io2.observe(s) });
+        var io3 = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) x.target.classList.add('on') }) }, { threshold: .2 }); document.querySelectorAll('.tl').forEach(function (t) { io3.observe(t) })
+      } else { document.querySelectorAll('.tl').forEach(function (t) { t.classList.add('on') }) }
+    })();
+  </script>
+</body>
+
+</html>
